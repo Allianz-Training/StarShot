@@ -1,0 +1,10 @@
+GET 
+/getclaim		: get infomation for contact our service
+/getcontactus/{id}	: get the speciifc data refer to "id" of user
+/getcontactus/all	: get all the data from contact us 	
+/getinsurance 		: get all the data from registration 
+
+POST
+/postclaim		: post the claim data into data base 	
+/postcontact		: post the contactus data into database 
+/postregistration	: post the registration data into database and send E-mail
