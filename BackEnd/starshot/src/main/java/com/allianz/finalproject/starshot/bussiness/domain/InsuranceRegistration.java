@@ -62,27 +62,27 @@ public class InsuranceRegistration {
   private Float total_price;
   // 18
 
-  // 19
-  @Column(name = "event_date")
-  private Date event_date;
-  // 20
-  @Column(name = "event_name")
-  private String event_name;
-  // 21
-  @Column(name = "sex")
-  private String sex;
-
-
-  @Override
-  public String toString() {
-    return "InsuranceRegistration [policy_number=" + policy_number + ", event_code=" + event_code
-        + ", package_code=" + package_code + ", title_name=" + title_name + ", first_name="
-        + first_name + ", last_name=" + last_name + ", national_id=" + national_id
-        + ", passport_number=" + passport_number + ", gender=" + gender + ", birth_date="
-        + birth_date + ", phone_number=" + phone_number + ", email=" + email + ", nationality="
-        + nationality + ", address=" + address + ", promaotion_code=" + promaotion_code
-        + ", total_price=" + total_price + ", event_date=" + event_date + ", event_name="
-        + event_name + ", sex=" + sex + "]";
+  public InsuranceRegistration(Integer policy_number, Integer event_code, Integer package_code,
+      String title_name, String first_name, String last_name, String national_id,
+      String passport_number, String gender, Date birth_date, String phone_number, String email,
+      String nationality, String address, String promaotion_code, Float total_price) {
+    super();
+    this.policy_number = policy_number;
+    this.event_code = event_code;
+    this.package_code = package_code;
+    this.title_name = title_name;
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.national_id = national_id;
+    this.passport_number = passport_number;
+    this.gender = gender;
+    this.birth_date = birth_date;
+    this.phone_number = phone_number;
+    this.email = email;
+    this.nationality = nationality;
+    this.address = address;
+    this.promaotion_code = promaotion_code;
+    this.total_price = total_price;
   }
 
   public Integer getPolicy_number() {
@@ -213,39 +213,17 @@ public class InsuranceRegistration {
     this.total_price = total_price;
   }
 
-  public Date getEvent_date() {
-    return event_date;
+  @Override
+  public String toString() {
+    return "InsuranceRegistration [policy_number=" + policy_number + ", event_code=" + event_code
+        + ", package_code=" + package_code + ", title_name=" + title_name + ", first_name="
+        + first_name + ", last_name=" + last_name + ", national_id=" + national_id
+        + ", passport_number=" + passport_number + ", gender=" + gender + ", birth_date="
+        + birth_date + ", phone_number=" + phone_number + ", email=" + email + ", nationality="
+        + nationality + ", address=" + address + ", promaotion_code=" + promaotion_code
+        + ", total_price=" + total_price + "]";
   }
 
-  public void setEvent_date(Date event_date) {
-    this.event_date = event_date;
-  }
-
-  public String getEvent_name() {
-    return event_name;
-  }
-
-  public void setEvent_name(String event_name) {
-    this.event_name = event_name;
-  }
-
-  public String getSex() {
-    return sex;
-  }
-
-  public void setSex(String sex) {
-    this.sex = sex;
-  }
-
-
-
-  public InsuranceRegistration() {}
-
-  public InsuranceRegistration(Integer policy_number, Integer event_code, Integer package_code,
-      String title_name, String first_name, String last_name, String national_id,
-      String passport_number, String gender, Date Date, String phone_number, String email,
-      String nationality, String address, String promaotion_code, Float total_price,
-      Date event_date, String event_name, String sex) {}
 
 
 }
