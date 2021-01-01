@@ -1,5 +1,6 @@
 package com.allianz.finalproject.starshot.bussiness.domain;
 
+
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,6 +26,8 @@ public class Event {
   private String package_a_price;
   @Column(name = "package_b_price")
   private String package_b_price;
+
+
 
   public Event() {}
 
@@ -95,6 +98,7 @@ public class Event {
   public void setPackage_b_price(String package_b_price) {
     this.package_b_price = package_b_price;
   }
+
 
   @Override
   public String toString() {

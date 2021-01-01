@@ -17,6 +17,7 @@ public class InsuranceWebController {
   @Autowired
   private InsuranceRepository insuranceRepository;
 
+
   private EmailSender emailSender = new EmailSender();
 
   @PostMapping("/postregistration")

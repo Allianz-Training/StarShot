@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.allianz.finalproject.starshot.bussiness.domain.ContactUs;
 import com.allianz.finalproject.starshot.bussiness.domain.ContactUsRepository;
@@ -17,14 +15,14 @@ public class ContactUsWebController {
   @Autowired
   private ContactUsRepository contactUsRepository;
 
-  @RequestMapping("/test")
-  @ResponseBody
-  String home() {
-    // DTO
-    //
-    // JPA
-    return "Hello World!";
-  }
+  // @RequestMapping("/test")
+  // @ResponseBody
+  // String home() {
+  // // DTO
+  // //
+  // // JPA
+  // return "Hello World!";
+  // }
 
   @PostMapping("/postcontactus")
   public ContactUs addContactUs(@RequestBody ContactUs contactUs) {
