@@ -50,9 +50,27 @@ public class EventWebController {
   @Autowired
   private IEventService eventService;
 
-  @GetMapping("/getevent/upcoming")
+  @GetMapping("/getevent/all/upcoming")
   public List<Event> getEventByDate() {
 
     return eventService.findAllOrderByDate();
+  }
+
+  @GetMapping("/getevent/music/upcoming")
+  public List<Event> getMusicEventByDate() {
+
+    return eventService.findAllMusicOrderByDate();
+  }
+
+  @GetMapping("/getevent/sport/upcoming")
+  public List<Event> getSportEventByDate() {
+
+    return eventService.findAllSportOrderByDate();
+  }
+
+  @GetMapping("/getevent/conference/upcoming")
+  public List<Event> getConferenceEventByDate() {
+
+    return eventService.findAllConferenceOrderByDate();
   }
 }

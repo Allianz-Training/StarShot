@@ -23,16 +23,16 @@ public class Event {
   @Column(name = "event_location")
   private String event_location;
   @Column(name = "package_a_price")
-  private String package_a_price;
+  private Float package_a_price;
   @Column(name = "package_b_price")
-  private String package_b_price;
+  private Float package_b_price;
 
 
 
   public Event() {}
 
   public Event(Integer event_code, String event_type, Date event_date, String event_name,
-      String event_location, String package_a_price, String package_b_price) {
+      String event_location, Float package_a_price, Float package_b_price) {
     super();
     this.event_code = event_code;
     this.event_type = event_type;
@@ -83,19 +83,19 @@ public class Event {
     this.event_location = event_location;
   }
 
-  public String getPackage_a_price() {
+  public Float getPackage_a_price() {
     return package_a_price;
   }
 
-  public void setPackage_a_price(String package_a_price) {
+  public void setPackage_a_price(Float package_a_price) {
     this.package_a_price = package_a_price;
   }
 
-  public String getPackage_b_price() {
+  public Float getPackage_b_price() {
     return package_b_price;
   }
 
-  public void setPackage_b_price(String package_b_price) {
+  public void setPackage_b_price(Float package_b_price) {
     this.package_b_price = package_b_price;
   }
 

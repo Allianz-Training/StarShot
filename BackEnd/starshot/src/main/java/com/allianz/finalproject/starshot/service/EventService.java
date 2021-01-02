@@ -33,5 +33,21 @@ public class EventService implements IEventService {
 
   }
 
+
+  @Override
+  public List<Event> findAllMusicOrderByDate() {
+    return eventReopository.findAllMusicOrderByDate();
+  }
+
+  @Override
+  public List<Event> findAllSportOrderByDate() {
+    return eventReopository.findAllSportOrderByDate();
+  }
+
+  @Override
+  public List<Event> findAllConferenceOrderByDate() {
+    return eventReopository.findAllConferenceOrderByDate();
+  }
+
 }
 

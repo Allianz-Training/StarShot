@@ -8,4 +8,10 @@ import com.allianz.finalproject.starshot.bussiness.domain.Event;
 public interface IEventService {
 
   List<Event> findAllOrderByDate();
+
+  List<Event> findAllMusicOrderByDate();
+
+  List<Event> findAllSportOrderByDate();
+
+  List<Event> findAllConferenceOrderByDate();
 }
