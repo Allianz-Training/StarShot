@@ -62,6 +62,8 @@ public class InsuranceRegistration {
   private Float total_price;
   // 18
 
+  public InsuranceRegistration() {}
+
   public InsuranceRegistration(Integer policy_number, Integer event_code, Integer package_code,
       String title_name, String first_name, String last_name, String national_id,
       String passport_number, String gender, Date birth_date, String phone_number, String email,
