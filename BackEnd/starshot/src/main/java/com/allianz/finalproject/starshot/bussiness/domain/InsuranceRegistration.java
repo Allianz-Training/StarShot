@@ -3,8 +3,12 @@ package com.allianz.finalproject.starshot.bussiness.domain;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "user_account")
@@ -12,14 +16,16 @@ public class InsuranceRegistration {
 
   // 1
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "policy_number")
   private Integer policy_number;
+  // @Column(name = "policy_number")
+  // private Integer policy_number;
   // 2
   @Column(name = "event_code")
   private Integer event_code;
   // 3
-  @Column(name = "package_code")
-  private Integer package_code;
+
   // 4
   @Column(name = "title_name")
   private String title_name;
@@ -54,8 +60,6 @@ public class InsuranceRegistration {
   @Column(name = "address")
   private String address;
   // 15
-  @Column(name = "promaotion_code")
-  private String promaotion_code;
 
   // 17
   @Column(name = "total_price")
@@ -64,14 +68,14 @@ public class InsuranceRegistration {
 
   public InsuranceRegistration() {}
 
-  public InsuranceRegistration(Integer policy_number, Integer event_code, Integer package_code,
-      String title_name, String first_name, String last_name, String national_id,
-      String passport_number, String gender, Date birth_date, String phone_number, String email,
-      String nationality, String address, String promaotion_code, Float total_price) {
+  public InsuranceRegistration(Integer policy_number, Integer event_code, String title_name,
+      String first_name, String last_name, String national_id, String passport_number,
+      String gender, Date birth_date, String phone_number, String email, String nationality,
+      String address, Float total_price) {
     super();
     this.policy_number = policy_number;
     this.event_code = event_code;
-    this.package_code = package_code;
+
     this.title_name = title_name;
     this.first_name = first_name;
     this.last_name = last_name;
@@ -83,7 +87,7 @@ public class InsuranceRegistration {
     this.email = email;
     this.nationality = nationality;
     this.address = address;
-    this.promaotion_code = promaotion_code;
+
     this.total_price = total_price;
   }
 
@@ -103,13 +107,7 @@ public class InsuranceRegistration {
     this.event_code = event_code;
   }
 
-  public Integer getPackage_code() {
-    return package_code;
-  }
 
-  public void setPackage_code(Integer package_code) {
-    this.package_code = package_code;
-  }
 
   public String getTitle_name() {
     return title_name;
@@ -199,13 +197,7 @@ public class InsuranceRegistration {
     this.address = address;
   }
 
-  public String getPromaotion_code() {
-    return promaotion_code;
-  }
 
-  public void setPromaotion_code(String promaotion_code) {
-    this.promaotion_code = promaotion_code;
-  }
 
   public Float getTotal_price() {
     return total_price;
@@ -218,12 +210,11 @@ public class InsuranceRegistration {
   @Override
   public String toString() {
     return "InsuranceRegistration [policy_number=" + policy_number + ", event_code=" + event_code
-        + ", package_code=" + package_code + ", title_name=" + title_name + ", first_name="
-        + first_name + ", last_name=" + last_name + ", national_id=" + national_id
-        + ", passport_number=" + passport_number + ", gender=" + gender + ", birth_date="
-        + birth_date + ", phone_number=" + phone_number + ", email=" + email + ", nationality="
-        + nationality + ", address=" + address + ", promaotion_code=" + promaotion_code
-        + ", total_price=" + total_price + "]";
+        + ", package_code=" + ", title_name=" + title_name + ", first_name=" + first_name
+        + ", last_name=" + last_name + ", national_id=" + national_id + ", passport_number="
+        + passport_number + ", gender=" + gender + ", birth_date=" + birth_date + ", phone_number="
+        + phone_number + ", email=" + email + ", nationality=" + nationality + ", address="
+        + address + ", promaotion_code=" + ", total_price=" + total_price + "]";
   }
 
 
