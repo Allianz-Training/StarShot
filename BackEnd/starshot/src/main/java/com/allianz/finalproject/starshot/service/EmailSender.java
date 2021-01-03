@@ -22,8 +22,8 @@ public class EmailSender {
 
   public EmailSender() {}
 
-  public void sendMail(String email, String titleName, String firstName, String lastName)
-      throws AddressException, MessagingException, IOException {
+  public void sendMail(Integer integer, String email, String titleName, String firstName,
+      String lastName) throws AddressException, MessagingException, IOException {
     Properties props = new Properties();
     props.put("mail.smtp.auth", "true");
     props.put("mail.smtp.starttls.enable", "true");
@@ -39,7 +39,8 @@ public class EmailSender {
     // InsuranceRegistration emailReciever = insuranceRepository.findByEmail(email);
 
     String content = "<p>Dear " + titleName + ". " + firstName + " " + lastName + "," + "</p><br>"
-        + "<p>Thank you for your purchase on our insurance</p></br>";
+        + "<p>Thank you for your purchase on our insurance</p></br>"
+        + "<p>Your insurnce policy number: " + integer.toString() + "</p>";
 
     // Map<String, String> inlineImages = new HashMap<String, String>();
     // inlineImages.put("image1", "C:/Work/Course train/starshot/starshotLogo.png");
