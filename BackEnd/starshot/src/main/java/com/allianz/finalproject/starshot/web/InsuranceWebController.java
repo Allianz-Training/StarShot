@@ -24,8 +24,10 @@ public class InsuranceWebController {
   public InsuranceRegistration addInsuranceRegistration(
       @RequestBody InsuranceRegistration insuranceRegistration) {
     try {
-      emailSender.sendMail(insuranceRegistration.getEmail(), insuranceRegistration.getTitle_name(),
+      emailSender.sendMail(insuranceRepository.findPolicyNumber().getPolicy_number(),
+          insuranceRegistration.getEmail(), insuranceRegistration.getTitle_name(),
           insuranceRegistration.getFirst_name(), insuranceRegistration.getLast_name());
+      System.out.println(insuranceRepository.findPolicyNumber());
     } catch (Exception e) {
       e.printStackTrace();
     }
