@@ -1,0 +1,50 @@
+<div class="claim-banner">
+  <img src="../../assets/icon/claim-banner.png" />
+  <h1>Event Claim Service</h1>
+</div>
+<div class="claim-content">
+  <h2>Claim Form</h2>
+  <div class="claim-form">
+    <form class="form-box" [formGroup]="form">
+      <div class="form-row">
+        <div class="col-md-4">
+          <label>Policy No.</label>
+          <input type="text" class="form-control" formControlName="policy_number" />
+        </div>
+        <div class="col-md-4">
+          <label>Insured’s First Name</label>
+          <input type="text" class="form-control" formControlName="first_name" />
+        </div>
+        <div class="col-md-4">
+          <label>Insured’s Last Name</label>
+          <input type="text" class="form-control" formControlName="last_name" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6">
+          <label>Phone No.</label>
+          <input type="tel" class="form-control" formControlName="phone_number" />
+        </div>
+        <div class="col-md-6">
+          <label>Email</label>
+          <input type="email" class="form-control" formControlName="email" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-12">
+          <label>Incident Description</label>
+          <textarea class="form-control" formControlName="incident" ></textarea>
+        </div>
+      </div>
+      <div class="btn-div">
+        <button type="submit" class="submit-btn" 
+        (click)="onSubmitForm()" routerLinkActive="active"
+        [disabled]="!form.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="footer"></div>
+</div>

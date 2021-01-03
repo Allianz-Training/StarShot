@@ -1,0 +1,75 @@
+.contact-banner {
+  margin-top: 4em;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.banner-img{
+  width: 100%;
+  height: auto;
+  z-index: -2;
+}
+h1 {
+  font-size: xx-large;
+  text-shadow: 0px 0px 10px black;
+}
+h5{
+  text-shadow: 0px 0px 10px black;
+}
+.contact-banner-text{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.contact-content{
+    background-color: black;
+    display: grid;
+    grid-column: 10% 40% 40% 10%;
+    grid-gap: 10px;
+}
+.contact-adr{
+    grid-column-start: 2;
+    margin-top:10px;
+    margin-bottom:10px;
+    text-align: center;
+}
+.contact-form{
+    text-align: center;
+    grid-column-start: 3;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+h2{
+    color: #FB2347;
+    text-shadow: 0px 0px 5px black;
+}
+@media only screen and (max-width: 650px){
+    h5{
+        font-size: 12px;
+        text-shadow: 0px 0px 10px black;
+      }
+}
+.form-row{
+  text-align: left;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+.btn-container{
+  text-align: left;
+}
+.submit-btn{
+  margin-top: 3rem;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #FB2347;
+  color: #FB2347;
+  background-color: transparent;
+  width: 30%;
+  font-weight: bold;
+}
+.submit-btn:hover{
+  background-color: #FB2347;
+  box-shadow: 0px 0px 10px #FB2347;
+  color: white;
+}

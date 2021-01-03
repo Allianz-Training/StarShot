@@ -1,0 +1,24 @@
+<html>
+<body>
+  <nav class="navbar fixed-top">
+    <div class="container">
+      <div class="logo">
+        <img src="../../assets/icon/logomini.png" alt="logomini" />
+      </div>
+      <div class="menu-set">
+        <a class="menu-btn" routerLink="/aboutus" routerLinkActive="active">About</a>
+        <a class="menu-btn" routerLink="/product" routerLinkActive="active">Product</a>
+        <a class="menu-btn" routerLink="/claim" routerLinkActive="active">Claim</a>
+        <a class="menu-btn" routerLink="/contact" routerLinkActive="active">Contact</a>
+      </div>
+      <div class="buy-btn">
+        <button class="buy-btn" routerLink="/product" routerLinkActive="active"><b>Buy</b></button>
+      </div>
+      <div></div>
+    </div>
+  </nav> 
+  <div class="another-component">
+    <router-outlet></router-outlet>
+  </div>
+</body>
+</html>

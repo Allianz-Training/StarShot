@@ -1,0 +1,47 @@
+<div class="contact-banner">
+  <img class="banner-img" src="../../assets/icon/contact-banner.png" />
+  <div class="contact-banner-text">
+    <h1>Leave us a message!</h1>
+    <h5>
+      Our sales and support teams are at your disposal to respond to your
+      questions. Do not hesitate to contact us and we will come back to you as
+      soon as possible.
+    </h5>
+  </div>
+</div>
+<div class="contact-content">
+  <div class="contact-adr">
+    <h2 style="margin-bottom: 20px">Starshot Insurance</h2>
+    <h4 style="color: white; margin-bottom: 20px">
+      777 G Tower Rama 9, 10th Floor<br />Rama IX Rd, Hui Kwang, Bangkok 10310
+    </h4>
+    <img src="../../assets/icon/send-icon.png" width="300px" height="300px" />
+  </div>
+  <div class="contact-form">
+    <h2>Contact Us!</h2>
+    <div>
+      <form [formGroup]="form">
+        <div class="form-row">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+        <div class="form-row">
+          <label>Email</label>
+          <input type="email" class="form-control" formControlName="email" />
+        </div>
+        <div class="form-row">
+          <label>Phone No.</label>
+          <input type="text" class="form-control" formControlName="phone_number" />
+        </div>
+        <div class="form-row">
+          <label>Message</label>
+          <textarea type="text" class="form-control" formControlName="message" ></textarea>
+        </div>
+      </form>
+      <div class="btn-container">
+        <button type="submit" class="submit-btn" routerLinkActive="active" (click)="onSubmitForm()" [disabled]="!form.valid" >Submit</button>
+      </div>
+    </div>
+  </div>
+  <div style="grid-column-start: 4"></div>
+</div>

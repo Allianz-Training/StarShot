@@ -1,0 +1,23 @@
+<div style="color: white; margin-top: 2in; text-align: center;" >
+    <h2>Conference</h2>
+    <table class="table" id='tab'style="color: white;"> 
+        <thead> 
+        <tr style="color: deeppink;"> 
+            <th scope="col">Name</th> 
+            <th scope="col">Date</th>
+            <th scope="col">Location</th> 
+            <th scope="col">Package price</th> 
+            <th scope="col"></th>
+        </tr> 
+        </thead> 
+        <tbody *ngFor="let e of eventList">
+            <tr *ngIf="e.event_type=='conference'">
+                <td>{{ e.event_name }}</td>
+                <td>{{ e.event_date | date: "short" }}</td>
+                <td>{{ e.event_Location }}</td>
+                <td>{{ e.package_a_price }} Baht</td>
+                <td><button>select</button></td>
+            </tr>
+          </tbody>
+    </table>                                       
+</div>

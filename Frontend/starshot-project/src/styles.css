@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: HelveticaNeue;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(90.78% 100% at 50% 0%, #090074 0%, #000000 100%);
+    background-attachment: fixed;
+}

@@ -1,0 +1,7 @@
+{
+    "http://localhost:4200/postregistration/*": {
+      "target": "http://localhost:8080/postregistration",
+      "secure": false,
+      "logLevel": "debug"
+    }
+}
