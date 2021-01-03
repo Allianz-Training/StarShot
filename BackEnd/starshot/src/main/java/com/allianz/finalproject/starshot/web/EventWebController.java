@@ -2,6 +2,8 @@ package com.allianz.finalproject.starshot.web;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +13,8 @@ import com.allianz.finalproject.starshot.bussiness.domain.Event;
 import com.allianz.finalproject.starshot.bussiness.domain.EventRepository;
 import com.allianz.finalproject.starshot.service.IEventService;
 
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@ControllerAdvice
 @RestController
 public class EventWebController {
   @Autowired
