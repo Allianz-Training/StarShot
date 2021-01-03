@@ -29,8 +29,11 @@ public class InsuranceWebController {
     } catch (Exception e) {
       e.printStackTrace();
     }
+
     return insuranceRepository.save(insuranceRegistration);
   }
+
+
 
   @GetMapping("/getinsurance")
   public List<InsuranceRegistration> getinsurance() {
