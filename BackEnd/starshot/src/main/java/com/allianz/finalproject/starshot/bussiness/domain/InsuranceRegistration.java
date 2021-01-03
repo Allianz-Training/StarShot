@@ -17,7 +17,7 @@ public class InsuranceRegistration {
   // 1
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "policy_number")
+  @Column(name = "policy_number", unique = true, nullable = false)
   private Integer policy_number;
   // @Column(name = "policy_number")
   // private Integer policy_number;
@@ -75,7 +75,6 @@ public class InsuranceRegistration {
     super();
     this.policy_number = policy_number;
     this.event_code = event_code;
-
     this.title_name = title_name;
     this.first_name = first_name;
     this.last_name = last_name;
@@ -87,7 +86,6 @@ public class InsuranceRegistration {
     this.email = email;
     this.nationality = nationality;
     this.address = address;
-
     this.total_price = total_price;
   }
 
