@@ -2,6 +2,8 @@ package com.allianz.finalproject.starshot.bussiness.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "contact_us")
 public class ContactUs {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "idcontact_us")
   private Integer idcontact_us;
   @Column(name = "name")

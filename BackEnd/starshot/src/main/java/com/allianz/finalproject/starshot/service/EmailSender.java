@@ -3,9 +3,6 @@ package com.allianz.finalproject.starshot.service;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -36,14 +33,11 @@ public class EmailSender {
       }
     });
 
-    // InsuranceRegistration emailReciever = insuranceRepository.findByEmail(email);
 
     String content = "<p>Dear " + titleName + ". " + firstName + " " + lastName + "," + "</p><br>"
         + "<p>Thank you for your purchase on our insurance</p></br>"
         + "<p>Your insurnce policy number: " + integer.toString() + "</p>";
 
-    // Map<String, String> inlineImages = new HashMap<String, String>();
-    // inlineImages.put("image1", "C:/Work/Course train/starshot/starshotLogo.png");
 
     Message msg = new MimeMessage(session);
     msg.setFrom(new InternetAddress("starshot.contactus@gmail.com", false));
@@ -58,15 +52,6 @@ public class EmailSender {
     multipart.addBodyPart(messageBodyPart);
 
 
-
-    // second part (the image)
-    messageBodyPart = new MimeBodyPart();
-    DataSource fds = new FileDataSource("C:/Work/Course train/starshot/starshotLogo.png");
-
-    messageBodyPart.setDataHandler(new DataHandler(fds));
-    messageBodyPart.setHeader("Content-ID", "<image>");
-
-    multipart.addBodyPart(messageBodyPart);
     msg.setContent(multipart);
     Transport.send(msg);
 
