@@ -1,23 +1,128 @@
-<div style="color: white; margin-top: 2in; text-align: center;" >
-    <h2>Conference</h2>
-    <table class="table" id='tab'style="color: white;"> 
-        <thead> 
-        <tr style="color: deeppink;"> 
-            <th scope="col">Name</th> 
+<div class="bg-con">
+    <div class="container" style="color: white; margin-top: 2in; text-align: center;">
+      <h2 style="text-shadow: 0px 0px 10px black;">Conference</h2>
+      <table class="table" id="tab" style="color: white">
+        <thead>
+          <tr style="color: #FB2347; font-size: 18px;">
+            <th scope="col">Name</th>
             <th scope="col">Date</th>
-            <th scope="col">Location</th> 
-            <th scope="col">Package price</th> 
+            <th scope="col">Location</th>
+            <!-- <th scope="col">Package Price</th> -->
             <th scope="col"></th>
-        </tr> 
-        </thead> 
+          </tr>
+        </thead>
         <tbody *ngFor="let e of eventList">
-            <tr *ngIf="e.event_type=='conference'">
-                <td>{{ e.event_name }}</td>
-                <td>{{ e.event_date | date: "short" }}</td>
-                <td>{{ e.event_Location }}</td>
-                <td>{{ e.package_a_price }} Baht</td>
-                <td><button>select</button></td>
-            </tr>
-          </tbody>
-    </table>                                       
-</div>
+          <tr *ngIf="e.event_type == 'conference'">
+            <td>{{ e.event_name }}</td>
+            <td>{{ e.event_date | date: "short" }}</td>
+            <td>{{ e.event_location }}</td>
+            <!-- <td>{{ e.package_a_price }} Baht</td> -->
+            <td style="display:flex; justify-content: center; padding:0px;" ><button class="btn-submit" (click)="open(content)" >Select</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Purchase Form</h4>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <form class="form-box" [formGroup]="form" >
+          <div class="form-row">
+            <div class="col-md-12">
+              <label>Event Type</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="music"
+                value="conference"
+              />
+            </div>
+              <div class="col-md-2">
+                <label>Title</label>
+                <select style="padding:0px;" class="form-control" formControlName="title_name">
+                  <option>Mr.</option>
+                  <option>Mrs.</option>
+                  <option>Ms.</option>
+                </select>
+              </div>
+              <div class="col-md-5">
+                <label>First Name</label>
+                <input type="text" class="form-control" formControlName="first_name" />
+              </div>
+              <div class="col-md-5">
+                <label>Last Name</label>
+                <input type="text" class="form-control" formControlName="last_name"/>
+              </div>
+              <div class="col-md-6">
+                <label>ID No.</label>
+                <input type="text" class="form-control" formControlName="national_id" />
+              </div>
+              <div class="col-md-6">
+                <label>Passport No.</label>
+                <input type="text" class="form-control" formControlName="passport_number" />
+              </div>
+              <div class="col-md-6">
+                <label>Gender</label>
+                <select style="padding:0px;" class="form-control" formControlName="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label>Date of Birth</label>
+                <input class="form-control" type="date" formControlName="birth_date" />
+              </div>
+              <div class="col-md-6">
+                <label>Phone No.</label>
+                <input type="text" class="form-control" formControlName="phone_number" />
+              </div>
+              <div class="col-md-6">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email" />
+              </div>
+              <div class="col-md-12">
+                <label>Nationality</label>
+                <input type="text" class="form-control" formControlName="nationality" />
+              </div>
+              <div class="col-md-12">
+                <label>Address</label>
+                <textarea type="text" class="form-control" formControlName="address"></textarea>
+              </div><div class="col-md-12">
+                <label>Select price</label>
+                <select type="number" class="form-control" formControlName="total_price">
+                  <option>299</option>
+                  <option>499</option>
+                  <option>799</option>
+                </select>
+              </div>
+          </div>
+        </form>
+        <h4 style="margin-top: 2em;">Term of Agreement</h4>
+        <div>
+          <p>This is some term of Agreement detail</p>
+        </div>
+        <div class="btn-con">
+          <button class="agr-btn" (click)="onAgree()">Agree</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn-submit"
+          (click)="modal.close(onSubmitForm())"
+          [disabled]="!form.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </ng-template>

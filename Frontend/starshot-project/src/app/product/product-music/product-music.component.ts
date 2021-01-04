@@ -5,17 +5,8 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Eventdata } from '../product-music/eventdata.model';
-import { map } from 'rxjs/operators';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 
-interface apidata{
-  event_type: string,
-  event_name: string,
-  event_date: Date,
-  event_location: string,
-  package_a_price: number
-}
 @Component({
   selector: 'app-product-music',
   templateUrl: './product-music.component.html',
@@ -26,11 +17,9 @@ export class ProductMusicComponent implements OnInit {
   musicUrl = 'http://localhost:8080/getevent';
   registerUrl = 'http://localhost:8080/postregistration';
   responseValue: any;
-  eventList:any;
+  eventList:any = [];
   closeResult = '';
   public form: FormGroup;
-  public api_data : apidata[];
-
 
   constructor(
     private http: HttpClient,
@@ -48,35 +37,21 @@ export class ProductMusicComponent implements OnInit {
       gender: ['', Validators.required],
       birth_date: ['', Validators.required],
       phone_number: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required,Validators.email]],
       nationality: ['', Validators.required],
       address: ['', Validators.required],
-      totle_price: [null]
+      total_price: ['']
     });
   }
   ngOnInit(){
     this.getMusic();
   }
   getMusic() {
-    this.http.get<{[key: string]: apidata}>(this.musicUrl).pipe(map(data => {
-      const eventdata =[];
-      for (const key in data){
-        if(data.hasOwnProperty(key)){
-          eventdata.push(
-            new Eventdata(
-              data[key].event_type,
-              data[key].event_name,
-              data[key].event_date,
-              data[key].event_location,
-              data[key].package_a_price
-            ))
-        }}
-        return eventdata;
-    })).subscribe((eventdata) => {
-      console.log(eventdata);
-      this.eventList = eventdata;
-    });
-  }
+    this.http.get<any>(this.musicUrl).subscribe(res => {
+      console.log(res) 
+      this.eventList =res; 
+    }); 
+}
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
@@ -122,5 +97,23 @@ export class ProductMusicComponent implements OnInit {
     );
     console.log(this.form.value);
     this.form.reset();
+  }
+  onAgree(){
+    alert("Please check your information before submit\n" 
+    +"Full name: "+this.form.value.first_name+" "+this.form.value.last_name + 
+    "\nEmail: "+ this.form.value.email + " Phone No: "+ this.form.value.phone_number
+    +" \nTotal price: "+ this.form.value.total_price)+" baht";
+  }
+  openSecond(content) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
   }
 }

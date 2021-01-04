@@ -2,6 +2,7 @@
   display: grid;
   grid-gap: 1em;
   margin-top: 1in;
+  justify-content: center;
 }
 h1 {
   color: #fb2347;
